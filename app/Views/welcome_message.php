@@ -224,7 +224,10 @@
             <li class="menu-item hidden"><a href="./home">Home</a></li>
             <li class="menu-item hidden"><a href="./about">About</a></li>
             <li class="menu-item hidden"><a href="./shop">Shop</a></li>
-            </li>
+        </ul>
+        <ul>
+            <li>Make Pagination with search filter</li>
+            <li class="menu-item hidden"><a href="./pagination">Pagination</a></li>
         </ul>
     </div>
 
