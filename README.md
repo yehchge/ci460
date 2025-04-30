@@ -1,68 +1,148 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 Framework sample & study & example
 
-## What is CodeIgniter?
+The project is my practice.  Version: 4.6.0
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+# Install
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+```bash
+composer create-project codeigniter4/appstarter ci460
+```
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+# Remove CodeIgniter4 public directory
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+Step1. Copy ~/public/* to ~/
 
-## Installation & updates
+Copy index.php、.htaccess、favicon.ico、robot.txt to project root directory.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Step2. Change in ~/app/Config/App.php File
+  
+ps: Change the $baseURL, can show Debug Toolbar.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+```txt
+public $baseURL = 'http://localhost:8080/';
+To
+public $baseURL = 'http://localhost/your_project_name/';
+```
 
-## Setup
+```txt
+public $uriProtocol = 'REQUEST_URI';
+To
+public $uriProtocol = 'PATH_INFO';
+```
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Step3. Change ~/index.php
 
-## Important Change with index.php
+```txt
+require FCPATH . '../app/Config/Paths.php';
+To
+require FCPATH . 'app/Config/Paths.php';
+```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Step4. Change ~/spark
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+```txt
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
+To
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+```
 
-**Please** read the user guide for a better explanation of how CI4 works!
+```txt
+require FCPATH . '../app/Config/Paths.php';
+To
+require FCPATH . 'app/Config/Paths.php';
+```
 
-## Repository Management
+Step5. Copy env To .env
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Step6. Generate .env Key
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+```bash
+php spark key:generate
+```
 
-## Server Requirements
+Step7. Set Directory writable can write
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+```bash
+chmod -R 777 writable/
+```
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Step8. Set .env variable CI_ENVIRONMENT
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+```txt
+# CI_ENVIRONMENT = production
+To
+CI_ENVIRONMENT = development
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+# Install JWT Package
+```bash
+composer require firebase/php-jwt
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+# Add JWT Model
+```bash
+php spark make:model ApiUserModel
+```
+
+# Add JWT Migration
+```bash
+php spark make:migration ApiAddUser
+```
+
+# Run JWT Migration
+```bash
+php spark migrate
+```
+
+# Add JWT_SECRET on .env file
+```txt
+#----------------------------------------------------------------
+# JWT
+#----------------------------------------------------------------
+JWT_SECRET = 'CodeIgniter4 JSON Web Token (JWT) Authentication'
+```
+
+# Create Controllers
+```bash
+php spark make:controller ApiLogin
+php spark make:controller ApiRegister
+php spark make:controller ApiUser
+```
+
+# Create Controller Filter
+```bash
+php spark make:filter ApiAuthFilter
+```
+
+# Add ApiAuthFilter to Filters.php
+
+# Register Routes
+```php
+// JWT API
+$routes->group("api", function($routes){
+    $routes->post('register', 'ApiRegister::index');
+    $routes->post('login', 'ApiLogin::index');
+    $routes->get('users', 'ApiUser::index', ['filter' => 'authFilter']);
+});
+```
+
+## 觀看 CodeIgniter 核心版本(Version 4.x.x)
+
+```bash
+php spark app:info
+```
+
+## 觀看 CodeIgniter 核心版本(Version 3.x.x)
+
+```bash
+cat system/core/CodeIgniter.php | grep CI_VERSION
+```
+
+## Migrate Table 語法改變
+
+```bash
+# old syntax (run error)
+php spark migrate:create create_users_table
+# new syntax
+php spark make:migration create_users_table
+```
