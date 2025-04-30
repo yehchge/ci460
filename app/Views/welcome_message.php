@@ -214,11 +214,16 @@
                 <button id="menuToggle">&#9776;</button>
             </li>
             <li class="menu-item hidden"><a href="#">Home</a></li>
-            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
-            </li>
+            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a></li>
             <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
-            <li class="menu-item hidden"><a
-                    href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
+            <li class="menu-item hidden"><a href="https://codeigniter.com/contribute" target="_blank">Contribute</a></li>
+        </ul>
+        <ul>
+            <li>Static Pages</li>
+            <li class="menu-item hidden"><a href="./pages">Pages</a></li>
+            <li class="menu-item hidden"><a href="./home">Home</a></li>
+            <li class="menu-item hidden"><a href="./about">About</a></li>
+            <li class="menu-item hidden"><a href="./shop">Shop</a></li>
             </li>
         </ul>
     </div>
