@@ -233,6 +233,10 @@
             <li>CodeIgniter 3 Version Page</li>
             <li class="menu-item hidden"><a href="./welcome/old">Welcome</a></li>
         </ul>
+        <ul>
+            <li>Smarty</li>
+            <li class="menu-item hidden"><a href="./smarty">Smarty</a></li>
+        </ul>
     </div>
 
     <div class="heroe">
