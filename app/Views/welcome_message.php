@@ -229,6 +229,10 @@
             <li>Make Pagination with search filter</li>
             <li class="menu-item hidden"><a href="./pagination">Pagination</a></li>
         </ul>
+        <ul>
+            <li>CodeIgniter 3 Version Page</li>
+            <li class="menu-item hidden"><a href="./welcome/old">Welcome</a></li>
+        </ul>
     </div>
 
     <div class="heroe">

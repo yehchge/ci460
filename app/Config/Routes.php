@@ -7,6 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// 3. CodeIgniter 3 Version Page
+$routes->get('welcome/old', 'Welcome::old');
+
 // 2. Pagination with search filter (Pagination sample)
 $routes->get('pagination', 'PaginationController::index');
 $routes->get('loadRecord', 'PaginationController::loadRecord');
