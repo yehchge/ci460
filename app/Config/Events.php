@@ -6,6 +6,9 @@ use CodeIgniter\Events\Events;
 use CodeIgniter\Exceptions\FrameworkException;
 use CodeIgniter\HotReloader\HotReloader;
 
+// 維護頁
+use App\Libraries\Maintenance;
+
 /*
  * --------------------------------------------------------------------
  * Application Events
@@ -53,3 +56,8 @@ Events::on('pre_system', static function (): void {
         }
     }
 });
+
+// 維護
+$Maintenance = new Maintenance();
+Events::on('pre_system', [$Maintenance, 'offline_check'], Events::PRIORITY_HIGH);
+

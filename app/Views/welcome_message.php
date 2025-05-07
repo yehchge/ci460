@@ -237,6 +237,10 @@
             <li>Smarty</li>
             <li class="menu-item hidden"><a href="./smarty">Smarty</a></li>
         </ul>
+        <ul>
+            <li>Maintenance</li>
+            <li class="menu-item hidden"><a href="./maintenance">Maintenance</a></li>
+        </ul>
     </div>
 
     <div class="heroe">

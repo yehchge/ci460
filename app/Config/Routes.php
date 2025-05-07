@@ -7,6 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// 5. maintenance Page
+$routes->get('maintenance', 'Maintenance::index');
+
 // 4. Smarty sample
 $routes->get('smarty', "Smarty::index");
 
