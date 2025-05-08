@@ -58,4 +58,16 @@ class PaginationController extends BaseController
 
         return view('pagination', $data);
     }
+
+    public function getAll()
+    {
+        $users = new PaginationModel();
+
+        $data = [
+            'users' => $users->paginate(5 , 'default', null, 2),
+            'pager' => $users->pager
+        ];
+
+        return view('user_view', $data);
+    }
 }

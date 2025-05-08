@@ -241,6 +241,10 @@
             <li>Maintenance</li>
             <li class="menu-item hidden"><a href="./maintenance">Maintenance</a></li>
         </ul>
+        <ul>
+            <li>Pagination Specifying the URI Segment for Page</li>
+            <li class="menu-item hidden"><a href="./pgusers">Pgusers</a></li>
+        </ul>
     </div>
 
     <div class="heroe">

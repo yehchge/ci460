@@ -7,6 +7,10 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// 6. Pagination Specifying the URI Segment for Page
+$routes->get('pgusers/(:segment)', 'PaginationController::getAll');
+$routes->get('pgusers', 'PaginationController::getAll');
+
 // 5. maintenance Page
 $routes->get('maintenance', 'Maintenance::index');
 

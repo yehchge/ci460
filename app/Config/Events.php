@@ -61,3 +61,8 @@ Events::on('pre_system', static function (): void {
 $Maintenance = new Maintenance();
 Events::on('pre_system', [$Maintenance, 'offline_check'], Events::PRIORITY_HIGH);
 
+// use CodeIgniter\Events\Events;
+
+// Events::PRIORITY_LOW;    // 200
+// Events::PRIORITY_NORMAL; // 100
+// Events::PRIORITY_HIGH;   // 10
