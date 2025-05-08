@@ -245,6 +245,11 @@
             <li>Pagination Specifying the URI Segment for Page</li>
             <li class="menu-item hidden"><a href="./pgusers">Pgusers</a></li>
         </ul>
+        <ul>
+            <li>Custom Pagination</li>
+            <li class="menu-item hidden"><a href="./codestar">CodeStar</a></li>
+        </ul>
+
     </div>
 
     <div class="heroe">
