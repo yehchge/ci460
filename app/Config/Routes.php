@@ -7,6 +7,12 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// 8. News Section
+use App\Controllers\News;
+$routes->get('news', [News::class, 'index']);
+$routes->get('news/(:segment)', [News::class, 'show']);
+// $routes->match(['GET', 'POST'], 'news/create', 'News::create');
+
 // 7. Custom Pagination
 $routes->get('codestar', 'Main::index');
 
