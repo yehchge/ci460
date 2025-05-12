@@ -249,6 +249,11 @@
             <li>Custom Pagination</li>
             <li class="menu-item hidden"><a href="./codestar">CodeStar</a></li>
         </ul>
+        <ul>
+            <li>News Section</li>
+            <li class="menu-item hidden"><a href="./news">News Section</a></li>
+            <li class="menu-item hidden"><a href="./news/new">Create News Items</a></li>
+        </ul>
 
     </div>
 
