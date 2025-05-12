@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Controllers;
+/**
+ * 官方練習
+ *  @ref: https://codeigniter.com/user_guide/tutorial/news_section.html
+ */
 
-// use App\Controllers\BaseController;
-// use CodeIgniter\HTTP\ResponseInterface;
+namespace App\Controllers;
 
 use App\Models\NewsModel;
 use CodeIgniter\Exceptions\PageNotFoundException;

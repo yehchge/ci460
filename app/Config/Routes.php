@@ -7,6 +7,11 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// 9. Working with Uploaded Files
+use App\Controllers\Upload;
+$routes->get('upload', [Upload::class, 'index']);          // Add this line.
+$routes->post('upload/upload', [Upload::class, 'upload']); // Add this line.
+
 // 8. News Section
 use App\Controllers\News;
 $routes->get('news', [News::class, 'index']);
