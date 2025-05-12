@@ -254,6 +254,10 @@
             <li class="menu-item hidden"><a href="./news">News Section</a></li>
             <li class="menu-item hidden"><a href="./news/new">Create News Items</a></li>
         </ul>
+        <ul>
+            <li>Working with Uploaded Files</li>
+            <li class="menu-item hidden"><a href="./upload">Upload</a></li>
+        </ul>
 
     </div>
 
