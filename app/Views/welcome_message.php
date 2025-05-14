@@ -258,6 +258,12 @@
             <li>Working with Uploaded Files</li>
             <li class="menu-item hidden"><a href="./upload">Upload</a></li>
         </ul>
+        <ul>
+            <li>RESTful API</li>
+            <li class="menu-item hidden"><a href="./employee">ShowAll</a></li>
+            <li class="menu-item hidden"><a href="./employee/5">Single User 5</a></li>
+        </ul>
+        
 
     </div>
 

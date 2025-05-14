@@ -7,6 +7,21 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// 10. RESTful API
+// $routes->resource('employee');
+// $routes->resource('employee', ['only' =>['index', 'create', 'show', 'update', 'delete']]);
+$routes->resource('employee', ['except' =>['new', 'edit']]);
+$routes->presenter('emp');
+
+// $routes->get('employee/new', 'Employee::new');
+// $routes->post('employee', 'Employee::create');
+// $routes->get('employee', 'Employee::index');
+// $routes->get('employee/(:segment)', 'Employee::show/$1');
+// $routes->get('employee/(:segment)/edit', 'Employee::edit/$1');
+// $routes->put('employee/(:segment)', 'Employee::update/$1');
+// $routes->patch('employee/(:segment)', 'Employee::update/$1');
+// $routes->delete('employee/(:segment)', 'Employee::delete/$1');
+
 // 9. Working with Uploaded Files
 use App\Controllers\Upload;
 $routes->get('upload', [Upload::class, 'index']);          // Add this line.
