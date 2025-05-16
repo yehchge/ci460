@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Codeigniter 4 : Add New Employee</title>
+  <meta charset="UTF-8">
+  <title>RESTful API 測試 Codeigniter 4 : Add New Employee</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
