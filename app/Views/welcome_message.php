@@ -263,6 +263,10 @@
             <li class="menu-item hidden"><a href="./employee">ShowAll</a></li>
             <li class="menu-item hidden"><a href="./employee/5">Single User 5</a></li>
         </ul>
+        <ul>
+            <li>使用 RESTful API 練習 Web CRUD</li>
+            <li class="menu-item hidden"><a href="./emp">List</a></li>
+        </ul>
         
 
     </div>

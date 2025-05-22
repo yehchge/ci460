@@ -72,6 +72,11 @@ class Filters extends BaseFilters
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            'csrf' => ['except' => [
+                                        'employee/*',
+                                        'employee',
+                                   ]
+                      ], // 將 employee restful api 忽略 csrf
         ],
         'after' => [
             // 'honeypot',
@@ -93,7 +98,7 @@ class Filters extends BaseFilters
      * @var array<string, list<string>>
      */
     public array $methods = [
-        'POST' => ['csrf'], // Enable CSRF Filter
+        // 'POST' => ['csrf'], // Enable CSRF Filter
     ];
 
     /**

@@ -16,22 +16,6 @@
 </head>
 
 <body>
-  <!-- <h2>RESTful API 測試 - Items</h2> -->
-
-  <!-- 表單：新增/更新項目 -->
-  <div class="form-group">
-      <input type="hidden" id="employee-id">
-      <label for="employee-name">員工名稱:</label>
-      <input type="text" id="employee-name" placeholder="輸入員工名稱">
-      <label for="employee-email">員工信箱:</label>
-      <input type="email" id="employee-email" placeholder="輸入員工信箱">
-      <button onclick="createOrUpdateEmployee()">新增/更新</button>
-  </div>
-
-  <!-- 員工列表 -->
-  <div id="item-list"></div>
-
-
 <div class="container mt-4">
     <div class="d-flex justify-content-end">
         <a href="<?php echo site_url('/emp/new') ?>" class="btn btn-success mb-2">Add Employee</a>
@@ -56,27 +40,6 @@
   </div>
 </div>
 <script>
-
-function deleteEmployee(id){
-  const url = '<?= site_url('/employee/') ?>' + id;
-
-  fetch(url, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-  })
-  .then(response => {
-      if (response.ok) {
-        window.location.reload();
-        console.log('Resource deleted successfully');
-      } else {
-        console.error('Failed to delete resource');
-      }
-  })
-  .catch(error => console.error('Error:', error));
-}
-
 
 const API_URL = '<?= site_url('/employee') ?>'; // 替換為你的 API 基礎 URL
 
@@ -110,8 +73,6 @@ async function fetchItems() {
             <td>
               <a href="<?= base_url('emp/edit/') ?>${item.id}" class="btn btn-primary btn-sm">Edit</a>
               <a href="javascript:deleteEmployee(${item.id});" class="btn btn-danger btn-sm">Delete</a>
-              <button onclick="editEmployee(${item.id}, '${item.name}', '${item.email}')">編輯</button>
-              <button onclick="deleteEmployee(${item.id})">刪除</button>
             </td>
           </tr>`;
 
@@ -162,21 +123,45 @@ async function createOrUpdateEmployee() {
 
 // 編輯項目
 function editEmployee(id, name, email) {
-    document.getElementById('employee-id').value = id;
-    document.getElementById('employee-name').value = name;
-    document.getElementById('employee-email').value = email;
+  document.getElementById('employee-id').value = id;
+  document.getElementById('employee-name').value = name;
+  document.getElementById('employee-email').value = email;
 }
 
 // 刪除項目
 async function deleteEmployee(id) {
   try {
-    const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-    if (!response.ok) throw new Error('刪除失敗');
-    fetchItems();
+    let result = confirm('Are you sure?');
+    if (result) {
+      const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+      if (!response.ok) throw new Error('刪除失敗');
+      fetchItems();      
+    }
   } catch (error) {
     alert('錯誤: ' + error.message);
   }
 }
+
+
+// function deleteEmployee(id){
+//   const url = '<?= site_url('/employee/') ?>' + id;
+
+//   fetch(url, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       }
+//   })
+//   .then(response => {
+//       if (response.ok) {
+//         window.location.reload();
+//         console.log('Resource deleted successfully');
+//       } else {
+//         console.error('Failed to delete resource');
+//       }
+//   })
+//   .catch(error => console.error('Error:', error));
+// }
 
 // 頁面載入時取得項目
 fetchItems();
