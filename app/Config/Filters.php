@@ -34,6 +34,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'authFilter'    => \App\Filters\ApiAuthFilter::class,
     ];
 
     /**
@@ -75,6 +76,7 @@ class Filters extends BaseFilters
             'csrf' => ['except' => [
                                         'employee/*',
                                         'employee',
+                                        'api/*',
                                    ]
                       ], // 將 employee restful api 忽略 csrf
         ],

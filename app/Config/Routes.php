@@ -7,6 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// 11. RESTful API JWT Authentication
+$routes->group("api", function($routes){
+    $routes->post('register', 'ApiRegister::index');
+    $routes->post('login', 'ApiLogin::index');
+    $routes->get('users', 'ApiUser::index', ['filter' => 'authFilter']);
+});
+
 // 10. RESTful API
 // $routes->resource('employee');
 // $routes->resource('employee', ['only' =>['index', 'create', 'show', 'update', 'delete']]);
