@@ -7,6 +7,26 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+
+// 12. ci_tutorial
+use App\Controllers\Admin;
+
+$routes->get('admin', [Admin::class, 'index']);
+$routes->get('admin/home', [Admin::class, 'home']);
+$routes->get('admin/login', [Admin::class, 'login']);
+$routes->post('admin/login/(:segment)', [Admin::class, 'login']);
+$routes->post('admin/create_user', [Admin::class, 'create_user']);
+$routes->get('admin/logout', [Admin::class, 'logout']);
+$routes->get('admin/delete_user/(:num)', [Admin::class, 'delete_user']);
+
+use App\Controllers\Dashboard;
+$routes->get('dashboard', [Dashboard::class, 'index']);
+$routes->get('dashboard/login', [Dashboard::class, 'login']);
+$routes->post('dashboard/login/(:segment)', [Dashboard::class, 'login']);
+$routes->get('dashboard/home', [Dashboard::class, 'home']);
+$routes->get('dashboard/logout', [Dashboard::class, 'logout']);
+$routes->get('dashboard/account', [Dashboard::class, 'account']);
+
 // 11. RESTful API JWT Authentication
 $routes->group("api", function($routes){
     $routes->post('register', 'ApiRegister::index');

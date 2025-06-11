@@ -146,3 +146,10 @@ php spark migrate:create create_users_table
 # new syntax
 php spark make:migration create_users_table
 ```
+
+ci_tutorial
+===========
+
+ JREAM CodeIgniter Quick Series
+ 
+ FYI: https://www.youtube.com/watch?v=cQW_v1RpwcI&list=PLwQf6Mb9WjZCEpt2kyPZBKwCuZU-V3XCq

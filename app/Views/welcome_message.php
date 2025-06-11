@@ -267,7 +267,11 @@
             <li>使用 RESTful API 練習 Web CRUD</li>
             <li class="menu-item hidden"><a href="./emp">List</a></li>
         </ul>
-        
+        <ul>
+            <li>ci_tutorial</li>
+            <li class="menu-item hidden"><a href="./admin">Admin</a></li>
+            <li class="menu-item hidden"><a href="./dashboard">User</a></li>
+        </ul>
 
     </div>
 
