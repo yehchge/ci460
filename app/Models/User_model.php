@@ -47,15 +47,16 @@ class User_model extends Model {
      */
     public function login($type, $email, $password)
     {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('user');
 
-        $query = $this->getWhere(array(
+        $query = $builder->getWhere(array(
             'type' => $type,
             'email' => $email,
             'password' => sha1($password . HASH_KEY)
         ));
 
-
-        return $query->getRow();
+        return $query->getResult();
     }
     
     public function create($email, $password)

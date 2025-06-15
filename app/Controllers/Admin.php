@@ -43,8 +43,7 @@ class Admin extends MY_Controller
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
       
-
-        $user_model = model(user_model::class);
+        $user_model = model(User_model::class);
         $result = $user_model->login('admin', $email, $password);
 
         if ($result == true) {
@@ -76,6 +75,7 @@ class Admin extends MY_Controller
 
         $user_model = model('User_model');
         $user_model->create($email, $password);
+        return redirect()->to('admin/home');
     }
 
     // ------------------------------------------------------------------------
@@ -84,6 +84,7 @@ class Admin extends MY_Controller
     {
         $userModel = new \App\Models\User_model();
         echo $userModel->myDelete($user_id);
+        return redirect()->to('admin/home');
     }
     
 }

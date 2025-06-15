@@ -50,6 +50,10 @@ class Dashboard extends MY_Controller
     
     public function home()
     {
+        $user_id = session()->get('user_id') ?? 0;
+        if (!$user_id) {
+            return redirect()->to('dashboard/login');            
+        }
         return view('dashboard/home', $this->data);
     }
         
@@ -57,7 +61,6 @@ class Dashboard extends MY_Controller
     
     public function account()
     {
-        echo "<pre>";print_r($_SESSION);echo "</pre>";
         $user_id = session()->get('user_id') ?? 0;
         if (!$user_id) {
             return redirect()->to('dashboard/login');            
